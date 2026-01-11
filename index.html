@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер Проектов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="controls">
+            <button id="openModalBtn" class="plus-btn">+</button>
+            
+            <div class="language-switcher">
+                <span id="currentLang">RU</span>
+                <div class="dropdown-content">
+                    <a href="#" data-lang="en">English</a>
+                    <a href="#" data-lang="ru">Русский</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="projectsContainer">
+        <h2 data-i18n="projectsTitle">Опубликованные Проекты</h2>
+        <p data-i18n="noProjects">Проектов пока нет. Нажмите '+' для создания нового.</p>
+    </main>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 data-i18n="createProjectTitle">Создать Новый Проект</h3>
+            
+            <form id="projectForm">
+                <label for="projectName" data-i18n="projectNameLabel">Название Проекта:</label>
+                <input type="text" id="projectName" required>
+                
+                <label data-i18n="projectFilesLabel">Файлы проекта:</label>
+                <input type="file" id="projectFiles" multiple required>
+                <div id="fileList"></div> <label data-i18n="osCompatibilityLabel">Совместимость с ОС:</label>
+                <div class="os-checkboxes">
+                    <input type="checkbox" id="osWindows" name="os" value="Windows">
+                    <label for="osWindows">Windows</label><br>
+                    
+                    <input type="checkbox" id="osMacOS" name="os" value="macOS">
+                    <label for="osMacOS">macOS</label><br>
+                    
+                    <input type="checkbox" id="osLinux" name="os" value="Linux">
+                    <label for="osLinux">Linux</label>
+                </div>
+
+                <button type="submit" data-i18n="publishBtn">Опубликовать</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
